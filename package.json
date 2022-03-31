@@ -1,0 +1,22 @@
+{
+  "name": "castleman",
+  "version": "0.0.1",
+  "description": "API-based infrastructure automation, for amateurs",
+  "main": "castleman.js",
+  "scripts": {
+    "test": "echo \"There is no spoon\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heymikewill/castleman.git"
+  },
+  "author": "Mike Williams <heymikewill@gmail.com> (http://mikewill.info)",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/heymikewill/castleman/issues"
+  },
+  "homepage": "https://github.com/heymikewill/castleman#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
