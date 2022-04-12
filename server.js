@@ -1,2 +1,2 @@
-var castleman = require('./castleman.js')
+var castleman = require('./castleman')
 castleman.start()

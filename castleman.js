@@ -4,14 +4,25 @@ var app = express()
 var server = null
 
 
-function response(req, res) {
-    res.set('Content-Type', 'text/html')
-    res.status(200).send("You didn't say the magic word")
+function handlePing(req, res) {
+    res.status(200).send('pong')
+}
+
+function handleDummy(req, res) {
+    res.status(200).json({})
 }
 
 // Start castleman
 function start(port) {
-    app.get('/', response)
+    app.get('/artifacts', handleDummy)
+    app.get('/artifacts/:artifactId', handleDummy)
+    app.put('/artifacts/:artifactId', handleDummy)
+
+    app.get('/targets', handleDummy)
+    app.get('/targets/:targetId', handleDummy)
+    app.put('/targets/:targetId', handleDummy)
+    app.post('/targets/:targetId/scan', handleDummy)
+    app.post('/targets/:targetId/run/:artifactId', handleDummy)
     
     server = app.listen(port, function() {
         var addr = server.address()
