@@ -9,11 +9,13 @@ function handlePing(req, res) {
 }
 
 function handleDummy(req, res) {
-    res.status(200).json({})
+    res.status(200).json({"message": "HERE HERE"})
 }
 
 // Start castleman
 function start(port) {
+    app.get('/ping', handlePing)
+
     app.get('/artifacts', handleDummy)
     app.get('/artifacts/:artifactId', handleDummy)
     app.put('/artifacts/:artifactId', handleDummy)
@@ -22,12 +24,14 @@ function start(port) {
     app.get('/targets/:targetId', handleDummy)
     app.put('/targets/:targetId', handleDummy)
     app.post('/targets/:targetId/scan', handleDummy)
-    app.post('/targets/:targetId/run/:artifactId', handleDummy)
+    app.post('/targets/:targetId/run', handleDummy)
     
     server = app.listen(port, function() {
         var addr = server.address()
         console.log('Hosting amateur hour at http://%s:%s', addr.address, addr.port)
     })
+
+    return server
 }
 
 // Stop castleman
